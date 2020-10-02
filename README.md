@@ -1,16 +1,39 @@
-# bloggy
+<h1 align="center"><b>Bloggy</b></h1>
 
-A new Flutter application.
+Blogging on the go, simplified.
 
-## Getting Started
+Bloggy is an app which makes blogging simpler. You can post what you're up-to, create groups, upload photos, videos and stay connected with your friends and family and what not.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Contribution is welcome! 🎉
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+## Prerequisites☑
+- Ability to use Git and Github :octocat:
+- Basic knowledge of Dart and Flutter
+- Basic knowledge of Firebase, REST APIs and willingness to learn more
+- UI/UX skills are appreciable but not mandatory
+
+
+## Screenshots
+
+<div class="row">
+  <div class="column">
+    <img src="https://github.com/nerdynikhil/bloggy/blob/master/Screenshots/Screenshot%20(1).png"  width="300">
+  </div>
+  <div class="column">
+    <img src="https://github.com/nerdynikhil/bloggy/blob/master/Screenshots/Screenshot%20(2).png"  width="300">
+  </div
+  <div class="column">
+    <img src="https://github.com/nerdynikhil/bloggy/blob/master/Screenshots/Screenshot%20(3).png"  width="300">
+  </div>
+</div>
+
+
+# Contributors: 
+[![](https://github.com/nerdynikhil.png?size=50)](https://github.com/nerdynikhil)
+[![](https://github.com/microaditi.png?size=50)](https://github.com/microaditi)
+
+# License 📝
+<p align="center"><img width=35% src="https://media.giphy.com/media/xUPGcJGy8I928yIlAQ/giphy.gif"></p>
+
