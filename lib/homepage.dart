@@ -19,7 +19,7 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
 
   TextEditingController userController, passwordController;
   bool isLoading= false;
-  var myKey = GlobalKey<ScaffoldState>();
+  GlobalKey<ScaffoldState> myKey = GlobalKey();
 
   @override
   void initState() {
@@ -65,6 +65,7 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: myKey,
       backgroundColor: Colors.grey[900],
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -230,7 +231,14 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
     });
     var email=userController.text.trim();
     var password=passwordController.text.trim();
-
+    if (email == '' || password == '') {
+      isLoading=false;
+      return myKey.currentState.showSnackBar(
+          SnackBar(
+              content: Text('Check the fields before login'),
+          )
+      );
+    }
     String url="http://flutter.smarttersstudio.com/test/login.php";
     var response=http.get(url+"?user=$email&pass=$password");
     response.then((response) async{
