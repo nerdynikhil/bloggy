@@ -89,7 +89,7 @@ class _OwnCardState extends State<OwnCard> {
   delete() async{
     SharedPreferences prefs= await SharedPreferences.getInstance();
     String postId= widget.post.id;
-    final result= await http.get('http://flutter.smarttersstudio.com/test/deletePost.php?id=$postId');
+    final result= await http.get('https://nerdynikhil.tech/test/deletePost.php?id=$postId');
     final jsonObject = json.decode(result.body);
     if(jsonObject['result'])
       Navigator.pop(context);

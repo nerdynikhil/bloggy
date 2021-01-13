@@ -46,7 +46,7 @@ class Settings extends StatelessWidget {
     );
   }
   _launchURL() async {
-    const url = "http://studentmate.site/aboutme/bloggy/";
+    const url = "https://github.com/nerdynikhil/bloggy";
     if (await canLaunch(url)) {
       await launch(url);
     } else {
@@ -55,7 +55,7 @@ class Settings extends StatelessWidget {
   }
 
   _launchURLA() async {
-    const url = "http://studentmate.site/aboutme/bloggy/";
+    const url = "https://github.com/nerdynikhil/bloggy";
     if (await canLaunch(url)) {
       await launch(url);
     } else {

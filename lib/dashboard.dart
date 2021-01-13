@@ -75,7 +75,7 @@ class _DashboardState extends State<Dashboard> {
               child: Column(
                 children: <Widget>[
                   Image(
-                    image: NetworkImage('http://studentmate.site/bloggy/logo.png'),
+                    image: NetworkImage('https://nerdynikhil.tech/bloggy/logo.png'),
                   height: 105,
                   width: 105,),
                   //Text('Bloggy',style: TextStyle(color: Colors.white),),
@@ -292,7 +292,7 @@ class _DashboardState extends State<Dashboard> {
   getData()async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String id = prefs.getString("login")??'0';
-    String url = 'http://flutter.smarttersstudio.com/test/profile.php?id=';
+    String url = 'https://nerdynikhil.tech/test/profile.php?id=';
     var result = await http.get(url+id);
     return result.body;
   }

@@ -13,7 +13,7 @@ class About extends StatelessWidget {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height/2.5,
             color: Colors.white54,
-            child: Image(image: NetworkImage('http://www.studentmate.site/bloggy/logo.png'),
+            child: Image(image: NetworkImage('https://nerdynikhil.tech/bloggy/logo.png'),
             height: 150,
             width: 150,)
           ),
@@ -28,7 +28,7 @@ class About extends StatelessWidget {
 //          ),
           Container(
             alignment: Alignment(0, -0.36),
-            child: Text('Version 1.1', style: TextStyle(fontSize: 10),),
+            child: Text('Version 1.2', style: TextStyle(fontSize: 10),),
           ),
 
           Container(
@@ -70,7 +70,7 @@ class About extends StatelessWidget {
           ),
           Container(
             alignment: Alignment(0, 0.85),
-            child: Text('© nerdynikhil. 2020. ALL RIGHTS RESERVED.',style: TextStyle(
+            child: Text('© nerdynikhil. 2021. ALL RIGHTS RESERVED.',style: TextStyle(
               fontWeight: FontWeight.w600,fontSize: 10.0,color: Colors.lightBlue,
             ),),
           ),

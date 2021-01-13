@@ -37,7 +37,7 @@ class Profile extends StatelessWidget {
   getData() async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String id = prefs.getString("login")??"0";
-    String url = 'http://flutter.smarttersstudio.com/test/profile.php?id=';
+    String url = 'https://nerdynikhil.tech/test/profile.php?id=';
     var result = await http.get(url+id);
     return result.body;
   }

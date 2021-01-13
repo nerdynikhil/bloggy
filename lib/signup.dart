@@ -288,7 +288,7 @@ class _SignUpState extends State<SignUp> {
     else if(groupValue!=1 && groupValue!=2)
       key.currentState.showSnackBar(SnackBar(content: Text("Provide your gender"),));
     else {
-      String url = "http://flutter.smarttersstudio.com/test/signup.php?";
+      String url = "https://nerdynikhil.tech/test/signup.php?";
       var response = http.get(url+"name=$name&password=$conpass&email=$mail&phone=$mob&gender=$groupValue");
       print(url+"name=$name&password=$conpass&email=$mail&phone=$mob&gender=$groupValue");
       response.then((response) {

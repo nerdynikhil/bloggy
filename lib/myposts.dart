@@ -35,7 +35,7 @@ class _MyPostsState extends State<MyPosts> {
     SharedPreferences pref= await SharedPreferences.getInstance();
     String id=pref.getString('login');
     var response = await http.get(
-        'http://flutter.smarttersstudio.com/test/getMyPosts.php?id=$id');
+        'https://nerdynikhil.tech/test/getMyPosts.php?id=$id');
     var jsonData = json.decode(response.body);
     return List<Posts>.from(jsonData.map((x) =>
         Posts(

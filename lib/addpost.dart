@@ -151,7 +151,7 @@ class _AddPostState extends State<AddPost> {
     String body = _bodyController.text;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String id = prefs.getString("login")??'0';
-    String url =  'http://studentmate.site/aboutme/bloggy/APIs/addPost.php?id=$id&title=$title&body=$body';
+    String url =  'https://nerdynikhil.tech/test/addPost.php?id=$id&title=$title&body=$body';
     var response = http.get(url);
     response.then((response) {
       var data = json.decode(response.body);
@@ -172,7 +172,7 @@ class _AddPostState extends State<AddPost> {
   getData()async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String id = prefs.getString("login")??'0';
-    String url = 'http://flutter.smarttersstudio.com/test/profile.php?id=';
+    String url = 'https://nerdynikhil.tech/test/profile.php?id=';
     var result = await http.get(url+id);
     return result.body;
   }

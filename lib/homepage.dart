@@ -74,7 +74,7 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
           Expanded(child: Container(),flex: 2,),
           Container(
             child: Image(
-            image: NetworkImage('http://studentmate.site/bloggy/logo.png'),
+            image: NetworkImage('http://nerdynikhil.tech/bloggy/logo.png'),
         height: 170,
         width: 170,
       ),
@@ -239,7 +239,7 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
           )
       );
     }
-    String url="http://flutter.smarttersstudio.com/test/login.php";
+    String url="https://nerdynikhil.tech/test/login.php";
     var response=http.get(url+"?user=$email&pass=$password");
     response.then((response) async{
       setState(() {

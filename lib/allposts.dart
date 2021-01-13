@@ -35,7 +35,7 @@ class _AllPostsState extends State<AllPosts> {
     SharedPreferences pref= await SharedPreferences.getInstance();
     String id=pref.getString('login');
     var response = await http.get(
-        'http://flutter.smarttersstudio.com/test/getAllPosts.php?id=');
+        'https://nerdynikhil.tech/test/getAllPosts.php?id=');
     var jsonData = json.decode(response.body);
     return List<Posts>.from(jsonData.map((x) =>
         Posts(
