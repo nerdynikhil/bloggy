@@ -48,7 +48,7 @@ such as <strong>Google’s Material design</strong> and <strong>Apple Cupertino<
 # Under the hood⚙️: 
 The app is build using <strong> Flutter</strong> framework. Both the GUI design and behaviour is written in
 <strong>Dart</strong> language.<br>
-The database used is <strong>MySQL</strong> hosted on website https://flutter.smarttersstudio.com/test/.<br>
+The database used is <strong>MySQL</strong> hosted on website https://nerdynikhil.tech/test/.<br>
 The APIs tosend and fetch data from the database are written using <strong>PHP REST API</strong>.<br><br>
 
 The coded .dart files are located in <strong>/lib/</strong> folder.<br>
@@ -58,7 +58,7 @@ Two tables 1. all_users and 2. posts have been created.
 
 # Contributors: 
 [![](https://github.com/nerdynikhil.png?size=50)](https://github.com/nerdynikhil)
-[![](https://github.com/microaditi.png?size=50)](https://github.com/microaditi)
+[![](https://github.com/eliasreis54.png?size=50)](https://github.com/eliasreis54)
 
 # License 📝
 <p align="center"><img width=35% src="https://media.giphy.com/media/xUPGcJGy8I928yIlAQ/giphy.gif"></p>
