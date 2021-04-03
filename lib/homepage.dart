@@ -7,18 +7,18 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'dashboard.dart';
+
 //final FirebaseAuth _auth = FirebaseAuth.instance;
 //final GoogleSignIn googleSignIn = GoogleSignIn();
 class Homepage extends StatefulWidget {
-
   @override
   _HomepageState createState() => _HomepageState();
 }
 
-class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin{
-
+class _HomepageState extends State<Homepage>
+    with SingleTickerProviderStateMixin {
   TextEditingController userController, passwordController;
-  bool isLoading= false;
+  bool isLoading = false;
   GlobalKey<ScaffoldState> myKey = GlobalKey();
 
   @override
@@ -35,7 +35,6 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
     passwordController.dispose();
   }
 
-
   final Shader linearGradient = LinearGradient(
     colors: <Color>[Color(0xffDA44bb), Color(0xff8921aa)],
   ).createShader(Rect.fromLTWH(0.0, 0.0, 200.0, 70.0));
@@ -50,7 +49,7 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
 //      idToken: googleSignInAuthentication.idToken,
 //    );
 
-   // final FirebaseUser user = await _auth.signInWithCredential(credential);
+  // final FirebaseUser user = await _auth.signInWithCredential(credential);
 
 //    assert(!user.isAnonymous);
 //    assert(await user.getIdToken() != null);
@@ -61,7 +60,6 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
 //    return 'signInWithGoogle succeeded: $user';
 //  }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,18 +69,21 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
-          Expanded(child: Container(),flex: 2,),
+          Expanded(
+            child: Container(),
+            flex: 2,
+          ),
           Container(
-            child: Image(
-            image: NetworkImage('http://nerdynikhil.tech/bloggy/logo.png'),
-        height: 170,
-        width: 170,
-      ),
+            child: Image.asset(
+              'images/logo.png',
+              height: 170,
+              width: 170,
+            ),
           ),
 
-
-
-          Expanded(child: Container(),),
+          Expanded(
+            child: Container(),
+          ),
 
           // commmenting out sign in using google button here
           //also commenting out expanded widgets
@@ -113,13 +114,8 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
           //Expanded(child: Container(),),
           Container(
             margin: EdgeInsets.only(left: 30.0, right: 30.0),
-            padding: EdgeInsets.only(
-                left: 20
-            ),
-            width: MediaQuery
-                .of(context)
-                .size
-                .width,
+            padding: EdgeInsets.only(left: 20),
+            width: MediaQuery.of(context).size.width,
             child: TextField(
               controller: userController,
               decoration: InputDecoration(
@@ -128,8 +124,8 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
                   border: InputBorder.none,
                   icon: Icon(
                     Icons.face,
-                    color: Colors.pink,)
-              ),
+                    color: Colors.pink,
+                  )),
             ),
             decoration: BoxDecoration(
                 color: Colors.white,
@@ -139,19 +135,14 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
                     color: Colors.black,
                     blurRadius: 5.0,
                   )
-                ]
-            ),
+                ]),
           ),
 
           Container(
-            margin: EdgeInsets.only(top: 10.0, left: 30.0, right: 30.0,bottom: 5),
-            padding: EdgeInsets.only(
-                left: 20
-            ),
-            width: MediaQuery
-                .of(context)
-                .size
-                .width,
+            margin:
+                EdgeInsets.only(top: 10.0, left: 30.0, right: 30.0, bottom: 5),
+            padding: EdgeInsets.only(left: 20),
+            width: MediaQuery.of(context).size.width,
             child: TextField(
               obscureText: true,
               controller: passwordController,
@@ -161,8 +152,8 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
                   border: InputBorder.none,
                   icon: Icon(
                     Icons.vpn_key,
-                    color: Colors.pink,)
-              ),
+                    color: Colors.pink,
+                  )),
             ),
             decoration: BoxDecoration(
                 color: Colors.white,
@@ -172,90 +163,92 @@ class _HomepageState extends State<Homepage> with SingleTickerProviderStateMixin
                     color: Colors.black,
                     blurRadius: 5.0,
                   )
-                ]
-            ),
+                ]),
           ),
-          SizedBox(height: 20.0,),
+          SizedBox(
+            height: 20.0,
+          ),
           GestureDetector(
             onTap: login,
             child: Container(
                 alignment: Alignment.center,
                 margin: EdgeInsets.all(5),
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width * 0.85,
+                width: MediaQuery.of(context).size.width * 0.85,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     gradient: LinearGradient(
-                        colors: [Colors.pink,
-                          Colors.pink[900]])
-                ),
+                        colors: [Colors.pink, Colors.pink[900]])),
                 child: FlatButton(
-                    child: Text('Sign In', style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-                    )
-                )
-            ),
+                    child: Text(
+                  'Sign In',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ))),
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(
-                  builder: (context) => SignUp()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => SignUp()));
             },
             child: Container(
                 alignment: Alignment.center,
-                margin: EdgeInsets.only(left: 5,right: 5,top: 5,bottom: 0),
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width * 0.85,
+                margin: EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 0),
+                width: MediaQuery.of(context).size.width * 0.85,
                 decoration: BoxDecoration(
                     border: Border.all(color: Colors.pink),
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     color: Colors.black12),
                 child: FlatButton(
-                    child: Text('Sign Up',
-                      style: TextStyle(color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold),
-                    )
-                )
-            ),
+                    child: Text(
+                  'Sign Up',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold),
+                ))),
           ),
-          Expanded(child: Container(), flex: 1,),
+          Expanded(
+            child: Container(),
+            flex: 1,
+          ),
         ],
       ),
     );
   }
-  login(){
+
+  login() {
     setState(() {
-      isLoading=true;
+      isLoading = true;
     });
-    var email=userController.text.trim();
-    var password=passwordController.text.trim();
+    var email = userController.text.trim();
+    var password = passwordController.text.trim();
     if (email == '' || password == '') {
-      isLoading=false;
-      return myKey.currentState.showSnackBar(
-          SnackBar(
-              content: Text('Check the fields before login'),
-          )
-      );
+      isLoading = false;
+      return myKey.currentState.showSnackBar(SnackBar(
+        content: Text('Check the fields before login'),
+      ));
     }
-    String url="https://nerdynikhil.tech/test/login.php";
-    var response=http.get(url+"?user=$email&pass=$password");
-    response.then((response) async{
+    String url = "https://nerdynikhil.tech/test/login.php";
+    var response = http.get(url + "?user=$email&pass=$password");
+    response.then((response) async {
       setState(() {
-        isLoading=false;
+        isLoading = false;
       });
-      var data=json.decode(response.body);
-      bool value=data['result'];
-      if(value== true) {
-        String id= data['id'];
-        SharedPreferences prefs=await SharedPreferences.getInstance();
-        await prefs.setString("login",id);
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Dashboard()));
-      }
-      else {
+      var data = json.decode(response.body);
+      bool value = data['result'];
+      if (value == true) {
+        String id = data['id'];
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        await prefs.setString("login", id);
+        Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Dashboard()));
+      } else {
         String reason = data['reason'];
-        myKey.currentState.showSnackBar(SnackBar(content: Text(reason),));
+        myKey.currentState.showSnackBar(SnackBar(
+          content: Text(reason),
+        ));
       }
     });
   }
