@@ -74,8 +74,8 @@ class _HomepageState extends State<Homepage>
             flex: 2,
           ),
           Container(
-            child: Image(
-              image: NetworkImage('http://nerdynikhil.tech/bloggy/logo.png'),
+            child: Image.asset(
+              'images/logo.png',
               height: 170,
               width: 170,
             ),

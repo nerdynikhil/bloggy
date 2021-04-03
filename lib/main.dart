@@ -1,3 +1,4 @@
+import 'package:bloggy/Splashscreen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -13,22 +14,27 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Bloggy Demo',
-      home:  FutureBuilder(
+      home: FutureBuilder(
         // ignore: missing_return
-        builder: (context,snapshot){
-          if(snapshot.hasData){
-            if(snapshot.data == '0')
-              return Homepage();
-            return Dashboard();
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            if (snapshot.data == '0')
+              return SplashScreen(
+                Homepage(),
+              );
+            return SplashScreen(
+              Dashboard(),
+            );
           }
         },
         future: getPage(),
       ),
     );
   }
-  getPage() async{
-    SharedPreferences prefs= await SharedPreferences.getInstance();
-    String id= await prefs.get('login')??'0';
+
+  getPage() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String id = await prefs.get('login') ?? '0';
     return id;
   }
 }

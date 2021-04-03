@@ -9,64 +9,61 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-
-  createAlertDialog(BuildContext context){
-    return showDialog(context: context, builder: (context){
-      return AlertDialog(
-        title: Text('You can login with your account now.', style: TextStyle(color: Colors.blue),),
-        actions: <Widget>[
-          MaterialButton(
-              child: Text('Okay'),
-            onPressed: (){
-              Navigator.pop(context);
-            },
-          ),
-        ],
-      );
-    });
+  createAlertDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text(
+              'You can login with your account now.',
+              style: TextStyle(color: Colors.blue),
+            ),
+            actions: <Widget>[
+              MaterialButton(
+                child: Text('Okay'),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          );
+        });
   }
 
-
-
-  TextEditingController username,email, password, phno, conpassword;
-  GlobalKey<ScaffoldState> key= GlobalKey();
+  TextEditingController username, email, password, phno, conpassword;
+  GlobalKey<ScaffoldState> key = GlobalKey();
 
   @override
   void initState() {
     super.initState();
-    username=TextEditingController();
-    phno=TextEditingController();
-    email=TextEditingController();
-    password=TextEditingController();
-    conpassword=TextEditingController();
+    username = TextEditingController();
+    phno = TextEditingController();
+    email = TextEditingController();
+    password = TextEditingController();
+    conpassword = TextEditingController();
   }
-  void dispose()
-  {
+
+  void dispose() {
     super.dispose();
     username.dispose();
     phno.dispose();
     email.dispose();
     password.dispose();
     conpassword.dispose();
-
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: key,
-        backgroundColor: Colors.grey[900],
+      backgroundColor: Colors.grey[900],
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.end,
-        children: <Widget>
-        [
-
+        children: <Widget>[
           Container(
-            margin: EdgeInsets.only(top: 30.0,left: 30.0, right: 30.0),
-            padding: EdgeInsets.only(
-                left: 20
-            ),
+            margin: EdgeInsets.only(top: 30.0, left: 30.0, right: 30.0),
+            padding: EdgeInsets.only(left: 20),
             width: MediaQuery.of(context).size.width,
             child: TextField(
               controller: username,
@@ -75,8 +72,8 @@ class _SignUpState extends State<SignUp> {
                   border: InputBorder.none,
                   icon: Icon(
                     Icons.face,
-                    color: Colors.grey,)
-              ),
+                    color: Colors.grey,
+                  )),
             ),
             decoration: BoxDecoration(
                 color: Colors.white,
@@ -86,15 +83,11 @@ class _SignUpState extends State<SignUp> {
                     color: Colors.black,
                     blurRadius: 5.0,
                   )
-                ]
-            ),
+                ]),
           ),
-
           Container(
-            margin: EdgeInsets.only(top:10, left: 30.0, right: 30.0),
-            padding: EdgeInsets.only(
-                left: 20
-            ),
+            margin: EdgeInsets.only(top: 10, left: 30.0, right: 30.0),
+            padding: EdgeInsets.only(left: 20),
             width: MediaQuery.of(context).size.width,
             child: TextField(
               controller: email,
@@ -103,8 +96,8 @@ class _SignUpState extends State<SignUp> {
                   border: InputBorder.none,
                   icon: Icon(
                     Icons.email,
-                    color: Colors.grey,)
-              ),
+                    color: Colors.grey,
+                  )),
             ),
             decoration: BoxDecoration(
                 color: Colors.white,
@@ -114,14 +107,11 @@ class _SignUpState extends State<SignUp> {
                     color: Colors.black,
                     blurRadius: 5.0,
                   )
-                ]
-            ),
+                ]),
           ),
           Container(
-            margin: EdgeInsets.only(top:10, left: 30.0, right: 30.0),
-            padding: EdgeInsets.only(
-                left: 20
-            ),
+            margin: EdgeInsets.only(top: 10, left: 30.0, right: 30.0),
+            padding: EdgeInsets.only(left: 20),
             width: MediaQuery.of(context).size.width,
             child: TextField(
               controller: phno,
@@ -131,8 +121,8 @@ class _SignUpState extends State<SignUp> {
                   border: InputBorder.none,
                   icon: Icon(
                     Icons.phone,
-                    color: Colors.grey,)
-              ),
+                    color: Colors.grey,
+                  )),
             ),
             decoration: BoxDecoration(
                 color: Colors.white,
@@ -142,40 +132,40 @@ class _SignUpState extends State<SignUp> {
                     color: Colors.black,
                     blurRadius: 5.0,
                   )
-                ]
-            ),
+                ]),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Radio(value: 1, groupValue: groupValue, onChanged: (value){
-                setState(() {
-                  groupValue=value;
-                });
-              }),
+              Radio(
+                  value: 1,
+                  groupValue: groupValue,
+                  onChanged: (value) {
+                    setState(() {
+                      groupValue = value;
+                    });
+                  }),
               Text(
                 'Male',
                 style: new TextStyle(fontSize: 16.0, color: Colors.white),
               ),
-              Radio(value: 2, groupValue: groupValue, onChanged: (value){
-                setState(() {
-                  groupValue=value;
-                });
-              }),
-
+              Radio(
+                  value: 2,
+                  groupValue: groupValue,
+                  onChanged: (value) {
+                    setState(() {
+                      groupValue = value;
+                    });
+                  }),
               Text(
                 'Female',
                 style: new TextStyle(fontSize: 16.0, color: Colors.white),
               ),
             ],
-          )
-          ,
-
+          ),
           Container(
-            margin: EdgeInsets.only(top: 5.0,left: 30.0, right: 30.0),
-            padding: EdgeInsets.only(
-                left: 20
-            ),
+            margin: EdgeInsets.only(top: 5.0, left: 30.0, right: 30.0),
+            padding: EdgeInsets.only(left: 20),
             width: MediaQuery.of(context).size.width,
             child: TextField(
               obscureText: true,
@@ -185,8 +175,8 @@ class _SignUpState extends State<SignUp> {
                   border: InputBorder.none,
                   icon: Icon(
                     Icons.vpn_key,
-                    color: Colors.grey,)
-              ),
+                    color: Colors.grey,
+                  )),
             ),
             decoration: BoxDecoration(
                 color: Colors.white,
@@ -196,14 +186,12 @@ class _SignUpState extends State<SignUp> {
                     color: Colors.black,
                     blurRadius: 5.0,
                   )
-                ]
-            ),
+                ]),
           ),
           Container(
-            margin: EdgeInsets.only(top: 10, left: 30.0, right: 30.0,bottom: 15.0),
-            padding: EdgeInsets.only(
-                left: 20
-            ),
+            margin:
+                EdgeInsets.only(top: 10, left: 30.0, right: 30.0, bottom: 15.0),
+            padding: EdgeInsets.only(left: 20),
             width: MediaQuery.of(context).size.width,
             child: TextField(
               controller: conpassword,
@@ -213,8 +201,8 @@ class _SignUpState extends State<SignUp> {
                   border: InputBorder.none,
                   icon: Icon(
                     Icons.vpn_key,
-                    color: Colors.grey,)
-              ),
+                    color: Colors.grey,
+                  )),
             ),
             decoration: BoxDecoration(
                 color: Colors.white,
@@ -224,97 +212,119 @@ class _SignUpState extends State<SignUp> {
                     color: Colors.black,
                     blurRadius: 5.0,
                   )
-                ]
-            ),
+                ]),
           ),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Checkbox(value: checked,
+              Theme(
+                data: Theme.of(context).copyWith(
+                  unselectedWidgetColor: Colors.white,
+                ),
+                child: Checkbox(
+                  value: checked,
                   activeColor: Colors.white,
                   checkColor: Colors.pink,
-                  onChanged: (value){
-                setState(() {
-                  checked = value;
-                });
-              }),
-              Text('I agree to the Terms of Use and Privacy Policy.', softWrap: true, style: TextStyle(color: Colors.white),)
+                  onChanged: (value) {
+                    setState(() {
+                      checked = value;
+                    });
+                  },
+                ),
+              ),
+              Text(
+                'I agree to the Terms of Use and Privacy Policy.',
+                softWrap: true,
+                style: TextStyle(color: Colors.white),
+              )
             ],
           ),
           GestureDetector(
-            onTap: checked?signup:showSnack,
+            onTap: checked ? signup : showSnack,
             child: Container(
                 alignment: Alignment.center,
                 margin: EdgeInsets.only(right: 30),
-                width: MediaQuery
-                    .of(context)
-                    .size
-                    .width * 0.85,
+                width: MediaQuery.of(context).size.width * 0.85,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     gradient: LinearGradient(
-                        colors: [Colors.pink,
-                          Colors.pink[900]])
-                ),
+                        colors: [Colors.pink, Colors.pink[900]])),
                 child: FlatButton(
-                    child: Text('Register',
-                      style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-                    )
-                )
-            ),
+                    child: Text(
+                  'Register',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                ))),
           )
         ],
       ),
     );
   }
 
-  void signup(){
+  void signup() {
     String name = username.text.toString().trim();
     String mob = phno.text.toString().trim();
     String mail = email.text.toString().trim();
     String pass = password.text.toString().trim();
     String conpass = conpassword.text.toString().trim();
-    if(name.isEmpty)
-      key.currentState.showSnackBar(SnackBar(content: Text("Username can't be empty"),));
-    else if(mob.isEmpty)
-      key.currentState.showSnackBar(SnackBar(content: Text("Phone number can't be empty"),));
-    else if(mail.isEmpty)
-      key.currentState.showSnackBar(SnackBar(content: Text("Email can't be empty"),));
-    else if(pass.isEmpty)
-      key.currentState.showSnackBar(SnackBar(content: Text("Password can't be empty"),));
-    else if(conpass.isEmpty)
-      key.currentState.showSnackBar(SnackBar(content: Text("Confirm your password"),));
-    else if(groupValue!=1 && groupValue!=2)
-      key.currentState.showSnackBar(SnackBar(content: Text("Provide your gender"),));
+    if (name.isEmpty)
+      key.currentState.showSnackBar(SnackBar(
+        content: Text("Username can't be empty"),
+      ));
+    else if (mob.isEmpty)
+      key.currentState.showSnackBar(SnackBar(
+        content: Text("Phone number can't be empty"),
+      ));
+    else if (mail.isEmpty)
+      key.currentState.showSnackBar(SnackBar(
+        content: Text("Email can't be empty"),
+      ));
+    else if (pass.isEmpty)
+      key.currentState.showSnackBar(SnackBar(
+        content: Text("Password can't be empty"),
+      ));
+    else if (conpass.isEmpty)
+      key.currentState.showSnackBar(SnackBar(
+        content: Text("Confirm your password"),
+      ));
+    else if (groupValue != 1 && groupValue != 2)
+      key.currentState.showSnackBar(SnackBar(
+        content: Text("Provide your gender"),
+      ));
     else {
       String url = "https://nerdynikhil.tech/test/signup.php?";
-      var response = http.get(url+"name=$name&password=$conpass&email=$mail&phone=$mob&gender=$groupValue");
-      print(url+"name=$name&password=$conpass&email=$mail&phone=$mob&gender=$groupValue");
+      var response = http.get(url +
+          "name=$name&password=$conpass&email=$mail&phone=$mob&gender=$groupValue");
+      print(url +
+          "name=$name&password=$conpass&email=$mail&phone=$mob&gender=$groupValue");
       response.then((response) {
         var data = json.decode(response.body);
-        var value =data['result'];
-        if(value){
+        var value = data['result'];
+        if (value) {
           Navigator.pop(this.context);
-          key.currentState.showSnackBar(SnackBar(content: Text('You can sign in with your account now.'),));
-            createAlertDialog(context);
+          key.currentState.showSnackBar(SnackBar(
+            content: Text('You can sign in with your account now.'),
+          ));
+          createAlertDialog(context);
+        } else {
+          String reason = data['reason'];
+          key.currentState.showSnackBar(SnackBar(
+            content: Text(reason),
+          ));
         }
-
-        else{
-          String reason= data['reason'];
-          key.currentState.showSnackBar(SnackBar(content: Text(reason),));
-        }
-
       });
     }
-
   }
-  showSnack(){
-    key.currentState.showSnackBar(SnackBar(content: Text("You must agree to our terms to continue."),));
+
+  showSnack() {
+    key.currentState.showSnackBar(SnackBar(
+      content: Text("You must agree to our terms to continue."),
+    ));
   }
 
   bool checked = false;
-  int groupValue=1;
+  int groupValue = 1;
   bool value = true;
-
 }
