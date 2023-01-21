@@ -104,7 +104,7 @@ class _HomepageState extends State<Homepage>
 //                    border: Border.all(color: Colors.pink),
 //                    borderRadius: BorderRadius.all(Radius.circular(20)),
 //                    color: Colors.black12),
-//                child: FlatButton(
+//                child: TextButton(
 //                    child: Text('Sign in using Google',
 //                      style: TextStyle(color: Colors.white, fontSize: 17, fontWeight: FontWeight.bold),
 //                    )
@@ -178,7 +178,7 @@ class _HomepageState extends State<Homepage>
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     gradient: LinearGradient(
                         colors: [Colors.pink, Colors.pink[900]])),
-                child: FlatButton(
+                child: TextButton(
                     child: Text(
                   'Sign In',
                   style: TextStyle(
@@ -200,7 +200,7 @@ class _HomepageState extends State<Homepage>
                     border: Border.all(color: Colors.pink),
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     color: Colors.black12),
-                child: FlatButton(
+                child: TextButton(
                     child: Text(
                   'Sign Up',
                   style: TextStyle(
@@ -226,12 +226,19 @@ class _HomepageState extends State<Homepage>
     var password = passwordController.text.trim();
     if (email == '' || password == '') {
       isLoading = false;
-      return myKey.currentState.showSnackBar(SnackBar(
+      // return myKey.currentState.showSnackBar(SnackBar(
+      //   content: Text('Check the fields before login'),
+      // ));
+
+      const snackBar = SnackBar(
         content: Text('Check the fields before login'),
-      ));
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
     String url = "https://nerdynikhil.tech/test/login.php";
-    var response = http.get(url + "?user=$email&pass=$password");
+    // var response = http.get(url + "?user=$email&pass=$password");
+    var response = http.get(Uri.parse(url + "?user=$email&pass=$password"));
     response.then((response) async {
       setState(() {
         isLoading = false;
@@ -246,9 +253,11 @@ class _HomepageState extends State<Homepage>
             context, MaterialPageRoute(builder: (context) => Dashboard()));
       } else {
         String reason = data['reason'];
-        myKey.currentState.showSnackBar(SnackBar(
-          content: Text(reason),
-        ));
+        // myKey.currentState.showSnackBar(SnackBar(
+        //   content: Text(reason),
+        // ));
+        final snackBar = SnackBar(content: Text(reason));
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
       }
     });
   }

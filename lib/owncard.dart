@@ -60,7 +60,7 @@ class _OwnCardState extends State<OwnCard> {
                       builder: (context)=>AlertDialog(
                         content: Text('Do you really want to delete this post?'),
                         actions: <Widget>[
-                          FlatButton(
+                          TextButton(
                             onPressed: (){
                               delete();
                             },
@@ -89,7 +89,8 @@ class _OwnCardState extends State<OwnCard> {
   delete() async{
     SharedPreferences prefs= await SharedPreferences.getInstance();
     String postId= widget.post.id;
-    final result= await http.get('https://nerdynikhil.tech/test/deletePost.php?id=$postId');
+    // final result= await http.get('https://nerdynikhil.tech/test/deletePost.php?id=$postId');
+    final result= await http.get(Uri.parse('https://nerdynikhil.tech/test/deletePost.php?id=$postId'));
     final jsonObject = json.decode(result.body);
     if(jsonObject['result'])
       Navigator.pop(context);

@@ -249,7 +249,7 @@ class _SignUpState extends State<SignUp> {
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                     gradient: LinearGradient(
                         colors: [Colors.pink, Colors.pink[900]])),
-                child: FlatButton(
+                child: TextButton(
                     child: Text(
                   'Register',
                   style: TextStyle(
@@ -269,34 +269,49 @@ class _SignUpState extends State<SignUp> {
     String mail = email.text.toString().trim();
     String pass = password.text.toString().trim();
     String conpass = conpassword.text.toString().trim();
-    if (name.isEmpty)
-      key.currentState.showSnackBar(SnackBar(
-        content: Text("Username can't be empty"),
-      ));
-    else if (mob.isEmpty)
-      key.currentState.showSnackBar(SnackBar(
-        content: Text("Phone number can't be empty"),
-      ));
-    else if (mail.isEmpty)
-      key.currentState.showSnackBar(SnackBar(
-        content: Text("Email can't be empty"),
-      ));
-    else if (pass.isEmpty)
-      key.currentState.showSnackBar(SnackBar(
-        content: Text("Password can't be empty"),
-      ));
-    else if (conpass.isEmpty)
-      key.currentState.showSnackBar(SnackBar(
-        content: Text("Confirm your password"),
-      ));
-    else if (groupValue != 1 && groupValue != 2)
-      key.currentState.showSnackBar(SnackBar(
-        content: Text("Provide your gender"),
-      ));
-    else {
+    if (name.isEmpty) {
+      // key.currentState.showSnackBar(SnackBar(
+      //   content: Text("Username can't be empty"),
+      // ));
+      final snackBar = SnackBar(content: Text('Username can\'t be empty'));
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    } else if (mob.isEmpty) {
+      // key.currentState.showSnackBar(SnackBar(
+      //   content: Text("Phone number can't be empty"),
+      // ));
+      final snackBar = SnackBar(content: Text('Phone number can\'t be empty'));
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    } else if (mail.isEmpty) {
+      // key.currentState.showSnackBar(SnackBar(
+      //   content: Text("Email can't be empty"),
+      // ));
+      final snackBar = SnackBar(content: Text('Email can\'t be empty'));
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    } else if (pass.isEmpty) {
+      // key.currentState.showSnackBar(SnackBar(
+      //   content: Text("Password can't be empty"),
+      // ));
+      final snackBar = SnackBar(content: Text('Password can\'t be empty'));
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    } else if (conpass.isEmpty) {
+      // key.currentState.showSnackBar(SnackBar(
+      //   content: Text("Confirm your password"),
+      // ));
+      final snackBar = SnackBar(content: Text('Confirm your password'));
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    } else if (groupValue != 1 && groupValue != 2) {
+      // key.currentState.showSnackBar(SnackBar(
+      //   content: Text("Provide your gender"),
+      // ));
+      final snackBar = SnackBar(content: Text('Provide your gender'));
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    } else {
       String url = "https://nerdynikhil.tech/test/signup.php?";
-      var response = http.get(url +
-          "name=$name&password=$conpass&email=$mail&phone=$mob&gender=$groupValue");
+      // var response = http.get(url +
+      //     "name=$name&password=$conpass&email=$mail&phone=$mob&gender=$groupValue");
+      var response = http.get(Uri.parse(url + "name=$name&password=$conpass&email=$mail&phone=$mob&gender=$groupValue"));
       print(url +
           "name=$name&password=$conpass&email=$mail&phone=$mob&gender=$groupValue");
       response.then((response) {
@@ -304,24 +319,32 @@ class _SignUpState extends State<SignUp> {
         var value = data['result'];
         if (value) {
           Navigator.pop(this.context);
-          key.currentState.showSnackBar(SnackBar(
-            content: Text('You can sign in with your account now.'),
-          ));
+          // key.currentState.showSnackBar(SnackBar(
+          //   content: Text('You can sign in with your account now.'),
+          // ));
+          final snackBar = SnackBar(content: Text('You can sign in with your account now.'));
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
           createAlertDialog(context);
         } else {
           String reason = data['reason'];
-          key.currentState.showSnackBar(SnackBar(
-            content: Text(reason),
-          ));
+          final snackBar = SnackBar(content: Text(reason));
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          // key.currentState.showSnackBar(SnackBar(
+          //   content: Text(reason),
+          // ));
         }
       });
     }
   }
 
   showSnack() {
-    key.currentState.showSnackBar(SnackBar(
-      content: Text("You must agree to our terms to continue."),
-    ));
+    final snackBar = SnackBar(content: Text('You must agree to our terms to continue.'));
+
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+    // key.currentState.showSnackBar(SnackBar(
+    //   content: Text("You must agree to our terms to continue."),
+    // ));
   }
 
   bool checked = false;

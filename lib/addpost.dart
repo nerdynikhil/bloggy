@@ -152,7 +152,8 @@ class _AddPostState extends State<AddPost> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String id = prefs.getString("login")??'0';
     String url =  'https://nerdynikhil.tech/test/addPost.php?id=$id&title=$title&body=$body';
-    var response = http.get(url);
+    // var response = http.get(url);
+    var response = http.get(Uri.parse(url));
     response.then((response) {
       var data = json.decode(response.body);
       bool value = data['result'];
@@ -162,7 +163,11 @@ class _AddPostState extends State<AddPost> {
       }
       else{
         String reason = data['reason'];
-        _myKey.currentState.showSnackBar(SnackBar(content: Text('$reason')));
+        // _myKey.currentState.showSnackBar(SnackBar(content: Text('$reason')));
+
+        final snackBar = SnackBar(content: Text('$reason'));
+
+        ScaffoldMessenger.of(context).showSnackBar(snackBar);
       }
     });
 
@@ -173,7 +178,8 @@ class _AddPostState extends State<AddPost> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String id = prefs.getString("login")??'0';
     String url = 'https://nerdynikhil.tech/test/profile.php?id=';
-    var result = await http.get(url+id);
+    // var result = await http.get(url+id);
+    var result = await http.get(Uri.parse(url+id));
     return result.body;
   }
 }

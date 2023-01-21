@@ -34,8 +34,9 @@ class _AllPostsState extends State<AllPosts> {
   Future<List<Posts>> getData() async {
     SharedPreferences pref= await SharedPreferences.getInstance();
     String id=pref.getString('login');
-    var response = await http.get(
-        'https://nerdynikhil.tech/test/getAllPosts.php?id=');
+    // var response = await http.get(
+    //     'https://nerdynikhil.tech/test/getAllPosts.php?id=');
+    var response = await http.get(Uri.parse('https://nerdynikhil.tech/test/getAllPosts.php?id='));
     var jsonData = json.decode(response.body);
     return List<Posts>.from(jsonData.map((x) =>
         Posts(

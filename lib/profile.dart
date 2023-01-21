@@ -38,7 +38,8 @@ class Profile extends StatelessWidget {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String id = prefs.getString("login")??"0";
     String url = 'https://nerdynikhil.tech/test/profile.php?id=';
-    var result = await http.get(url+id);
+    // var result = await http.get(url+id);
+    var result = await http.get(Uri.parse(url+id));
     return result.body;
   }
 }
